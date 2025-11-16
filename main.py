@@ -37,34 +37,13 @@ class GameOfLife:
     def counter(self, x, y, curr_gen: list[list[int]]):
         cnt = 0
 
-        x2 = x
-        y2 = y
-        for i in range(3):
-            if i == 0:
-                x -= 1
-            elif i == 1:
-                x += 1
-            else:
-                if self.height <= x + 1:
-                    x -= x
-                else:
-                    x += 1
-
-            y1 = y
-            for j in range(3):
-                if j == 0:
-                    y1 -= 1
-                elif j == 1:
-                    y1 += 1
-                else:
-                    if self.width <= y1 + 1:
-                        y1 -= y
-                    else:
-                        y1 += 1
-
-                if x == x2 and y1 == y2:
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                if i == 0 and j == 0:
                     continue
-                cnt += curr_gen[x][y1]
+                neighbor_x = (x + i) % self.height
+                neighbor_y = (y + j) % self.width
+                cnt += curr_gen[neighbor_x][neighbor_y]
         return cnt
 
 
