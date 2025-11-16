@@ -46,7 +46,15 @@ class GameOfLife:
         return cnt
 
 
-g = GameOfLife(70, 70)
+width, height = list(map(int, input('Enter the field size (separated by a space): ').split())) or [50, 50]
+while width < 50 or height < 50:
+    print("The width and height can't be less than 50 cells")
+    width, height = list(map(int, input('Enter the field size (separated by a space): ').split()))
+
+xticks = [i - 0.5 for i in range(width + 1)]
+yticks = [i - 0.5 for i in range(height + 1)]
+
+g = GameOfLife(width, height)
 
 for x, y in patterns.GLIDER:
     g.seed(x, y)
@@ -54,8 +62,12 @@ for x, y in patterns.GLIDER:
 plt.ion()
 fig, ax = plt.subplots()
 
-for _ in range(1000):
+for generation in range(1000):
     ax.clear()
+    ax.set_xticks(xticks, [])
+    ax.set_yticks(yticks, [])
+    ax.grid(color='black', linestyle='-', linewidth=0.5)
+    ax.set_title(f'Generation: {generation}')
     ax.imshow(g.grid, cmap='binary')
     plt.pause(0.1)
     g.update()
