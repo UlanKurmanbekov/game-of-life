@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 
+import patterns
+
 
 class GameOfLife:
     def __init__(self, width, height):
@@ -46,11 +48,8 @@ class GameOfLife:
 
 g = GameOfLife(70, 70)
 
-for q in range(0, 3):
-    g.seed(q, 2)
-
-g.seed(2, 1)
-g.seed(1, 0)
+for x, y in patterns.GLIDER:
+    g.seed(x, y)
 
 plt.ion()
 fig, ax = plt.subplots()
