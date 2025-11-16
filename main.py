@@ -5,7 +5,7 @@ class GameOfLife:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.grid = [[*([0] * width)] for _ in range(height)]
+        self.grid = [[0] * width for _ in range(height)]
 
     def update(self):
         current_gen = [row[:] for row in self.grid]
@@ -29,10 +29,7 @@ class GameOfLife:
         print('\n\n\n\n')
 
     def seed(self, x, y):
-        for i in range(self.height):
-            for j in range(self.width):
-                if i == x and j == y:
-                    self.grid[i][j] = 1
+        self.grid[x][y] = 1
 
     def counter(self, x, y, curr_gen: list[list[int]]):
         cnt = 0
