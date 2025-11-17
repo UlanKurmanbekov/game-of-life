@@ -18,7 +18,16 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## Controls
+**Keyboard:**
+- `SPACE` - Pause/Unpause simulation
+- `C` - Clear grid
+
+**Mouse:**
+- `Left Click` - Draw cells (when paused)
+- `Right Click` - Erase cells (when paused)
+
 ## Technologies
 - Python
-- Matplotlib for visualization
-- Toroidal world topology
+- Pygame for visualization
+- NumPy for efficient computations
