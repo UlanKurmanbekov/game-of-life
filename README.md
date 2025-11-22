@@ -1,5 +1,8 @@
 # Conway's Game of Life
 
+## Preview
+![Game of Life Demo](demo.gif)
+
 ## Description
 Implementation of John Conway's classic cellular automaton "Game of Life".
 
@@ -9,8 +12,15 @@ Implementation of John Conway's classic cellular automaton "Game of Life".
 - A dead cell with exactly 3 neighbors becomes alive
 
 ## Installation
+1. Clone the repository:
 ```bash
-pip install -r requirements.txt
+   git clone https://github.com/UlanKurmanbekov/game-of-life.git
+   cd game-of-life
+```
+
+2. Install dependencies:
+```bash
+   pip install -r requirements.txt
 ```
 
 ## Usage
